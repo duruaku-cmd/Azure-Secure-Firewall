@@ -104,14 +104,50 @@ The VM was deployed:
 - SSH access via Bastion
 
 <img width="2553" height="1270" alt="Screenshot 2025-11-19 105933" src="https://github.com/user-attachments/assets/eddecdc3-2249-40f9-9c02-286374e5b460" />
-<img width="1913" height="982" alt="Screenshot 2025-11-19 001924" src="https://github.com/user-attachments/assets/feaba85a-0982-4a87-a8db-ca94354c81bf" />
 
 ### Connect via Bastion → SSH → Install Nginx
+
+
+<img width="1913" height="982" alt="Screenshot 2025-11-19 001924" src="https://github.com/user-attachments/assets/feaba85a-0982-4a87-a8db-ca94354c81bf" />
 
 Nginx installation:
 
 ```bash
+sudo su -
 sudo apt update
 sudo apt install -y nginx
 sudo vim /var/www/html/index.html
+```
+Inside Vim:
+- Press i for insert mode**
+- Paste your HTML (you can use the same one I used in the index.html)**
+- Press Esc**
+- Type :wq → press Enter to save**
 
+This updates the Nginx landing page.
+
+Test Nginx Locally From the VM
+
+```bash
+curl http://localhost:80
+```
+
+If you see your HTML, Nginx is working correctly.
+
+### **6️⃣ Final Test — Web App Served Through Azure Firewall**
+
+```bash
+http://<FirewallPublicIP>:4000
+```
+
+This goes through DNAT → VM private IP → port 80.
+
+<img width="1917" height="903" alt="Screenshot 2025-11-19 002832" src="https://github.com/user-attachments/assets/b1482a9c-e56b-47e0-b1fa-f7c8aa0d62bd" />
+
+This confirms:
+
+- Firewall is working
+- DNAT is configured correctly
+- NSGs are allowing only valid traffic
+- VM remains private
+- No public IP exposure
