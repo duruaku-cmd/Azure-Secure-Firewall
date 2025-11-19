@@ -119,10 +119,10 @@ sudo apt install -y nginx
 sudo vim /var/www/html/index.html
 ```
 Inside Vim:
-- Press i for insert mode**
-- Paste your HTML (you can use the same one I used in the index.html)**
-- Press Esc**
-- Type :wq → press Enter to save**
+- Press i for insert mode
+- Paste your HTML (you can use the same one I used in the index.html)
+- Press Esc
+- Type :wq → press Enter to save
 
 This updates the Nginx landing page.
 
