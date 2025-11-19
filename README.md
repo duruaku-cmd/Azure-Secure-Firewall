@@ -38,10 +38,5 @@ Key components:
 
 ### Diagram
 
-> 📌 `docs/architecture-diagram.png`
+<img width="1536" height="1024" alt="ChatGPT Image Nov 18, 2025, 10_42_47 PM" src="https://github.com/user-attachments/assets/226abef5-931b-4476-8db6-b50aae82764a" />
 
-```text
-User → Azure Firewall (DNAT, IP restricted) → Nginx VM (Subnet-1)
-          ↑                                      ↑
-          └──────────── Azure Bastion (SSH) ─────┘
-All of this lives inside a single Azure Virtual Network.
